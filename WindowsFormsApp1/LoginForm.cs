@@ -53,5 +53,10 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+        private void registerBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
