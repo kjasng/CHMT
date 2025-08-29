@@ -70,5 +70,10 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void ForgotPasswordForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

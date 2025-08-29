@@ -69,5 +69,10 @@ namespace WindowsFormsApp1
 
             //this.Hide();
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
