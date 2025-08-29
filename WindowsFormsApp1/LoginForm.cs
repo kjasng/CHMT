@@ -56,7 +56,18 @@ namespace WindowsFormsApp1
 
         private void registerBtn_Click(object sender, EventArgs e)
         {
+            SignupForm signupForm = new SignupForm();
+            signupForm.Show();
 
+
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            ForgotPasswordForm forgotPasswordForm = new ForgotPasswordForm();
+            forgotPasswordForm.Show();
+
+            //this.Hide();
         }
     }
 }

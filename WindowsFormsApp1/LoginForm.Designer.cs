@@ -37,7 +37,7 @@
             this.loginPasswordTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.exitBtn = new System.Windows.Forms.Button();
+            this.forgotPasswordBtn = new System.Windows.Forms.Button();
             this.registerBtn = new System.Windows.Forms.Button();
             this.loginBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
@@ -158,7 +158,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.exitBtn, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.forgotPasswordBtn, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.registerBtn, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.loginBtn, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -171,15 +171,16 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(745, 49);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // exitBtn
+            // forgotPasswordBtn
             // 
-            this.exitBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exitBtn.Location = new System.Drawing.Point(499, 3);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(243, 43);
-            this.exitBtn.TabIndex = 2;
-            this.exitBtn.Text = "Thoát";
-            this.exitBtn.UseVisualStyleBackColor = true;
+            this.forgotPasswordBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.forgotPasswordBtn.Location = new System.Drawing.Point(499, 3);
+            this.forgotPasswordBtn.Name = "forgotPasswordBtn";
+            this.forgotPasswordBtn.Size = new System.Drawing.Size(243, 43);
+            this.forgotPasswordBtn.TabIndex = 2;
+            this.forgotPasswordBtn.Text = "Quên mật khẩu";
+            this.forgotPasswordBtn.UseVisualStyleBackColor = true;
+            this.forgotPasswordBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // registerBtn
             // 
@@ -207,7 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 273);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Name = "LoginForm";
@@ -234,7 +235,7 @@
         private System.Windows.Forms.TextBox loginPasswordTxt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button loginBtn;
-        private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Button forgotPasswordBtn;
         private System.Windows.Forms.Button registerBtn;
     }
 }

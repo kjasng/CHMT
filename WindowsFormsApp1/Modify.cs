@@ -31,5 +31,15 @@ namespace WindowsFormsApp1
             }
                 return list;
         }
+
+        public int ExecuteNonQuery(string query)
+        {
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                SqlCommand cmd = new SqlCommand(query, sqlConnection);
+                return cmd.ExecuteNonQuery(); // số dòng bị ảnh hưởng
+            }
+        }
     }
 }

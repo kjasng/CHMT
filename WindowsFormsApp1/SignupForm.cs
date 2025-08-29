@@ -41,5 +41,65 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void signUpBtn_Click(object sender, EventArgs e)
+        {
+            string username = usernameTxt.Text;
+            string password = passwordTxt.Text;
+            string confirmPassword = confirmPasswordTxt.Text;
+            string identityCard = identityCardTxt.Text;
+            if (username.Trim() == "" || password.Trim() == "" || confirmPassword.Trim() == "" || identityCard.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+            else if (password != confirmPassword)
+            {
+                MessageBox.Show("Mật khẩu không khớp!");
+                return;
+            }
+            else if (password.Length < 6)
+            {
+                MessageBox.Show("Mật khẩu phải có ít nhất 6 ký tự!");
+                return;
+            }
+            else if (username.Length < 6)
+            {
+                MessageBox.Show("Tên đăng nhập phải có ít nhất 6 ký tự!");
+                return;
+            }
+            else if (identityCard.Length != 10)
+            {
+                MessageBox.Show("Số CMND/CCCD phải có đúng 10 ký tự!");
+                return;
+            }
+            else
+            {
+                Modify modify = new Modify();
+                string query = "INSERT INTO Users (username, password, identificard) VALUES ('" + username + "', '" + password + "', '" + identityCard + "')";
+                string checkQuery = "SELECT * FROM Users WHERE username = '" + username + "'";
+                if (modify.Users(checkQuery).Count != 0)
+                {
+                    MessageBox.Show("Tên đăng nhập đã tồn tại!");
+                    return;
+                }
+
+                int result = modify.ExecuteNonQuery(query);
+                if (result > 0)
+                {
+                    MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Đăng ký thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
