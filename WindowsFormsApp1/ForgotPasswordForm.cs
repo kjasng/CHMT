@@ -15,26 +15,34 @@ namespace WindowsFormsApp1
 		public ForgotPasswordForm()
 		{
 			InitializeComponent();
-			label2.Text = "";
+			label3.Text = "";
 		}
 		Modify modify = new Modify();
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			string username = textBox1.Text;
-			if (username.Trim() == "") { MessageBox.Show("Vui lòng nhập tài khoản!"); }
+
+            // Khai báo biến để lưu trữ credentials từ input
+            string username = forgotUsernameTxt.Text;
+			string identifyCard = identifyCardTxt.Text;
+
+            // Kiểm tra nếu input rỗng thì hiện thông báo
+            if (username.Trim() == "" || identifyCard.Trim() == "") { MessageBox.Show("Vui lòng nhập tài khoản và CCCD!"); }
 			else
 			{
-				string query = "SELECT * FROM Users WHERE username = '" + username + "'";
+				string query = "SELECT * FROM Users WHERE username = '" + username + "' AND identificard = '" + identifyCard + "'";
 				if (modify.Users(query).Count != 0)
 				{
-					label2.ForeColor = Color.Blue;
-					label2.Text = "Mật khẩu: " + modify.Users(query)[0].Password;
+                    // Cập nhật mật khẩu về mặc định là 123456
+                    string updatePassword = "UPDATE Users SET password = '123456' WHERE username = '" + username + "'";
+					modify.Users(updatePassword);
+                    label3.ForeColor = Color.Blue;
+					label3.Text = "Bạn đã thành công lấy lại mật khẩu: " + modify.Users(query)[0].Password;
 				}
 				else
 				{
-					label2.ForeColor = Color.Red;
-					label2.Text = "Tài khoản này chưa được đăng ký!";
+					label3.ForeColor = Color.Red;
+					label3.Text = "Tài khoản này chưa được đăng ký!";
 				}
 			}
 		}
@@ -42,5 +50,15 @@ namespace WindowsFormsApp1
 		private void textBox1_TextChanged(object sender, EventArgs e)
 		{
 		}
-	}
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
