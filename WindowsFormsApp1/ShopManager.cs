@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,11 @@ namespace WindowsFormsApp1
         ProductCategories productCategories;
         Invoice invoices;
 
+        public int CurrentUserRole { get; set; }
+
         private Button selectedButton = null;
+
+        
 
         bool sidebarExpanded;
         public ShopManager()
@@ -27,7 +32,15 @@ namespace WindowsFormsApp1
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            // CHeck if user role === 1 -> enable admin button
+            if (CurrentUserRole == 1)
+            {
+                adminBtn.Visible = true;
+            }
+            else
+            {
+                adminBtn.Visible = false;
+            }
         }
 
         private void sidebarTimer_Tick(object sender, EventArgs e)
@@ -192,6 +205,11 @@ namespace WindowsFormsApp1
         private void invoices_FormClosed(object sender, FormClosedEventArgs e)
         {
             invoices = null;
+        }
+
+        private void adminBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

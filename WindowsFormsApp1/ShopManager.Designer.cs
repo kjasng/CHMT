@@ -43,6 +43,8 @@
             this.productCategoryBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.invoiceBtn = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.adminBtn = new System.Windows.Forms.Button();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.sidebar.SuspendLayout();
             this.menuBtnn.SuspendLayout();
@@ -51,6 +53,7 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar
@@ -61,6 +64,7 @@
             this.sidebar.Controls.Add(this.panel2);
             this.sidebar.Controls.Add(this.panel3);
             this.sidebar.Controls.Add(this.panel4);
+            this.sidebar.Controls.Add(this.panel5);
             resources.ApplyResources(this.sidebar, "sidebar");
             this.sidebar.Name = "sidebar";
             // 
@@ -155,6 +159,21 @@
             this.invoiceBtn.UseVisualStyleBackColor = false;
             this.invoiceBtn.Click += new System.EventHandler(this.invoiceBtn_Click);
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.adminBtn);
+            resources.ApplyResources(this.panel5, "panel5");
+            this.panel5.Name = "panel5";
+            // 
+            // adminBtn
+            // 
+            this.adminBtn.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.adminBtn, "adminBtn");
+            this.adminBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.adminBtn.Name = "adminBtn";
+            this.adminBtn.UseVisualStyleBackColor = false;
+            this.adminBtn.Click += new System.EventHandler(this.adminBtn_Click);
+            // 
             // sidebarTimer
             // 
             this.sidebarTimer.Interval = 10;
@@ -176,6 +195,7 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -196,6 +216,8 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button invoiceBtn;
         private System.Windows.Forms.Button customersBtn;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button adminBtn;
     }
 }
 

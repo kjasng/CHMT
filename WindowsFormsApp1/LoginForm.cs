@@ -43,7 +43,10 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
+                    //string role = reader["Role"].ToString();
+                    int role = modify.Users(query)[0].role;
                     ShopManager mainForm = new ShopManager();
+                    mainForm.CurrentUserRole = role;
                     mainForm.ShowDialog();
                     this.Close();
                 }

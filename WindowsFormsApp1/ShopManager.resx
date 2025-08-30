@@ -210,11 +210,11 @@
   </data>
   <data name="customersBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAADRSURBVEhL5ZMxCsJAEEXfAbSy8T4WFmJrYeEBbC28hOexsdEDeAwRO0s75cMMyLBJNokLig8G
-        wv7/ZzezCfwLS+AEPKz0rLWPsAOeFSWtFzqlN1sDQys9+3qvN9EovHnEN5GnM5q3mujUEa1Jk6czxTco
-        PqLilyyKfqZO0R/td5kDZ+CemL2XNHlmMdzENtGsqTaxSRVTC1yBFTCOhjekySOvMpNoSHEw8yIKNcir
-        zD4KKW5mHkShhpFlLlFI4TNtS3Yu2xjIzh3tHtrSNfflvADdvGGFMe3hZAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAANFJREFUSEvl
+        kzEKwkAQRd8BtLLxPhYWYmth4QFsLbyE57Gx0QN4DBE7SzvlwwzIsEk2iQuKDwbC/v9nN7MJ/AtL4AQ8
+        rPSstY+wA54VJa0XOqU3WwNDKz37eq830Si8ecQ3kaczmrea6NQRrUmTpzPFNyg+ouKXLIp+pk7RH+13
+        mQNn4J6YvZc0eWYx3MQ20aypNrFJFVMLXIEVMI6GN6TJI68yk2hIcTDzIgo1yKvMPgopbmYeRKGGkWUu
+        UUjhM21Ldi7bGMjOHe0e2tI19+W8AN28YYUx7eFkAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="customersBtn.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -335,15 +335,15 @@
   </data>
   <data name="productBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAGoSURBVEhLzZW9K8VhFMc/lBIxoUiJ2UAMRoMyiCgWVv8A8pLFQsliZTCxGAxSShkM8jJhU4iy
-        eMnA4CV56dR5bueee58bLuVTT/f5ne/3nOf5vdzzwD+hABgDjnWMAPne9BNygD7gEvhwQ2K9PuE79AC3
-        puAR0Ay06DzEd4AGn5yJSmAJeDdF9oFq48kF+oEr1cUrOeXGkxZ5to+a9KK7e9brV2AWKDb+ImBGveKR
-        3EGjJ7FhdrwMVGm8Alg0d3QHDAB5JrcGWDH560ZLIInBsA3UO71O48FzCnSrJt5do8m7SyGIW/r7BiwA
-        Zc7XBZwZ/7W5u00TT8EKHcCJXj8Ao+6RFAKrpvAN0J6mThJekIJDwL3GZded+ljONSbamn55sToJYkIp
-        MG90GbLzOaDEmzPUiQuKvOTgqfWiIVonKhiy8kQFQ1aeqGDIynOhQqsXDNFkpU11+eJSmDQFbKuwxBbw
-        rWLCGwLjrtlN6Z8q4BeQxjftmt2w0dPi27W0ZGnNcviEBX7cri1NwJ4pemDmh2YuLb3RJ3+VPz0yLeHQ
-        f9Ih81859LPmEwmquZA7LA7CAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAahJREFUSEvN
+        lb0rxWEUxz+UEjGhSInZQAxGgzKIKBZW/wDyksVCyWJlMLEYDFJKGQzyMmFTiLJ4ycDgJXnp1Hlu5557
+        nxsu5VNP9/md7/ec5/m93PPAP6EAGAOOdYwA+d70E3KAPuAS+HBDYr0+4Tv0ALem4BHQDLToPMR3gAaf
+        nIlKYAl4N0X2gWrjyQX6gSvVxSs55caTFnm2j5r0ort71utXYBYoNv4iYEa94pHcQaMnsWF2vAxUabwC
+        WDR3dAcMAHkmtwZYMfnrRksgicGwDdQ7vU7jwXMKdKsm3l2jybtLIYhb+vsGLABlztcFnBn/tbm7TRNP
+        wQodwIlePwCj7pEUAqum8A3QnqZOEl6QgkPAvcZl1536WM41JtqafnmxOgliQikwb3QZsvM5oMSbM9SJ
+        C4q85OCp9aIhWicqGLLyRAVDVp6oYMjKc6FCqxcM0WSlTXX54lKYNAVsq7DEFvCtYsIbAuOu2U3pnyrg
+        F5DGN+2a3bDR0+LbtbRkac1y+IQFftyuLU3Anil6YOaHZi4tvdEnf5U/PTIt4dB/0iHzXzn0s+YTCaq5
+        kDssDsIAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="productBtn.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -411,10 +411,10 @@
   </data>
   <data name="productCategoryBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAACTSURBVEhL3ZXBCYAwDEUzhtO4i8MJ7uDBfXQIpdBDeW1IlEbQBzn8JObD70GRP7HlCuPMFQYN
-        JhHZi75VaTd9o0KDO8dLExUaUBPOqSu4QE04p67gQnhE4Y/cndcNPBGZsZTQwDpemriggaW1ngqXLa31
-        VLgcHlH4I3fnyAYjB71YGhE8reafcRCR2ZG7p1Ye/y4X0IK+ctHrYbUAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAJNJREFUSEvd
+        lcEJgDAMRTOG07iLwwnu4MF9dAil0EN5bUiURtAHOfwk5sPvQZE/seUK48wVBg0mEdmLvlVpN32jQoM7
+        x0sTFRpQE86pK7hATTinruBCeEThj9yd1w08EZmxlNDAOl6auKCBpbWeCpctrfVUuBweUfgjd+fIBiMH
+        vVgaETyt5p9xEJHZkbunVh7/LhfQgr5y0ethtQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="productCategoryBtn.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -482,12 +482,12 @@
   </data>
   <data name="invoiceBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAADkSURBVEhLvVXRCUIxEMsWOo1+OIlbOIC4h4LoDg90CYcQFVdQAi2Uu17v1b4aCPRekl5pyyvw
-        Z1wAvABsAzmurTmHic9ENJGa3gA2gRx7dVWDX+HmPcM60IKXdw2tujLMARwA3BNN8lrIK0jDOTOh5FDI
-        K0gD7zXrhaFLeLoyPHs3KG0Rz4Xnw3Oy8grSwPARwCPTIJKLsPIKniHVl2HMbczpWXiGVF9N0YB3PH6z
-        eCrkFaSh1ICHvAcwK+QVPEOr7hq6/+w8uPloiE/hLnBsPbpBK03w1nAl8SmMK6upb3LSrvgCeGLkQ7bG
-        Q+kAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAORJREFUSEu9
+        VdEJQjEQyxY6jX44iVs4gLiHgugOD3QJhxAVV1ACLZS7Xu/VvhoI9F6SXmnLK/BnXAC8AGwDOa6tOYeJ
+        z0Q0kZreADaBHHt1VYNf4eY9wzrQgpd3Da26MswBHADcE03yWsgrSMM5M6HkUMgrSAPvNeuFoUt4ujI8
+        ezcobRHPhefDc7LyCtLA8BHAI9Mgkouw8gqeIdWXYcxtzOlZeIZUX03RgHc8frN4KuQVpKHUgIe8BzAr
+        5BU8Q6vuGrr/7Dy4+WiIT+EucGw9ukErTfDWcCXxKYwrq6lvctKu+AJ4YuRDtsZD6QAAAABJRU5ErkJg
+        gg==
 </value>
   </data>
   <data name="invoiceBtn.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -546,6 +546,82 @@
   </data>
   <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="adminBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="adminBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="adminBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAb5JREFUSEvN
+        lbtKnVEQhT9joWkigpWNxkStRFELwVeQ4AV9jCQ+hQjaeO0sFUtfwkQMJIHYWRrvl85CBWXJjMwZ/6PH
+        I4QsGNhn7TVr/3vvObPhP8EHYB04tVgD2rKoWtQCf4DbFL+AmiyuBv1meAa8t91cGNeVxZXgXdr+spnN
+        B26pgFNOQ/hdiBng2pJ1LFvhSAaCbjDw0uzY+AqYCroSfDWRFtgNBkfASBYDE8BJ0Cnnxsafs1iXdWCT
+        n4zrBnqTLkN50kgrDJvH36SjLnxJa54E+oAN4NJCY3EZ7cFH1VeCbZvYtAUdMpKpJ3qIi4soxz2+Bf4B
+        ncChCWJ16GvFrQBNFhqL05zDq00e2kkhdJ4S7QfOv17GDo19F45j4578b7S8YgEvkrILdATRXOBfekTy
+        KDyiHyb4XuUl1wePR5f8NiSq32RUWqYfg09Jmb4JFTRkXDPQE0VlII20wqh57CXNPSZtMrcK/SvHshgY
+        tzbiutgqvmSxYzY1O29iinLN7nd4L9TspoOuEI2pXRS160XjFgJXUbsugj8451YAukh/cCq5o2ehaohH
+        5fEzC18Df/S1C13sapmu++9xB6aorZojITWNAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="adminBtn.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="adminBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="adminBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-3, -6</value>
+  </data>
+  <data name="adminBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 0, 0, 0</value>
+  </data>
+  <data name="adminBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 56</value>
+  </data>
+  <data name="adminBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="adminBtn.Text" xml:space="preserve">
+    <value>           Administrator Portal</value>
+  </data>
+  <data name="adminBtn.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;adminBtn.Name" xml:space="preserve">
+    <value>adminBtn</value>
+  </data>
+  <data name="&gt;&gt;adminBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;adminBtn.Parent" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;adminBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 226</value>
+  </data>
+  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 36</value>
+  </data>
+  <data name="panel5.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;panel5.Name" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
+    <value>sidebar</value>
+  </data>
+  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="sidebar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>

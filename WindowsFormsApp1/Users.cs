@@ -10,11 +10,15 @@ namespace WindowsFormsApp1
     {
         public string Username { get; set; }
         public string Password { get; set; }
+        public int role { get; set; }
 
-        public Users(string username, string password)
+
+        public Users(string username, string password, int role)
         {
             this.Username = username;
             this.Password = password;
+            this.role = role;
         }
+
     }
 }

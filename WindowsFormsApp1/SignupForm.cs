@@ -76,7 +76,7 @@ namespace WindowsFormsApp1
             else
             {
                 Modify modify = new Modify();
-                string query = "INSERT INTO Users (username, password, identificard) VALUES ('" + username + "', '" + password + "', '" + identityCard + "')";
+                string query = "INSERT INTO Users (username, password, identificard, role) VALUES ('" + username + "', '" + password + "', '" + identityCard + "', '0')";
                 string checkQuery = "SELECT * FROM Users WHERE username = '" + username + "'";
                 if (modify.Users(checkQuery).Count != 0)
                 {
