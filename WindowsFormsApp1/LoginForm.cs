@@ -43,7 +43,7 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
-                    Form1 mainForm = new Form1();
+                    ShopManager mainForm = new ShopManager();
                     mainForm.ShowDialog();
                     this.Close();
                 }

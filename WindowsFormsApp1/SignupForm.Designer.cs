@@ -105,7 +105,7 @@
             this.identityCardTxt.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.identityCardTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.identityCardTxt.Location = new System.Drawing.Point(214, 117);
-            this.identityCardTxt.MaxLength = 12;
+            this.identityCardTxt.MaxLength = 10;
             this.identityCardTxt.Name = "identityCardTxt";
             this.identityCardTxt.Size = new System.Drawing.Size(342, 27);
             this.identityCardTxt.TabIndex = 8;
