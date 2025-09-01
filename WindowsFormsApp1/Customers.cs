@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -44,13 +45,43 @@ namespace WindowsFormsApp1
         private void addCustomers_Click(object sender, EventArgs e)
         {
             addCustomer.ShowDialog();
-
-
         }
 
         private void delCustomerBtn_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn khách hàng để xoá!");
+                return;
+            }
 
+            string customerId = dataGridView1.CurrentRow.Cells["CustomerID"].Value.ToString();
+
+            DialogResult dialogResult = MessageBox.Show(
+                this,
+                "Bạn có chắc chắn muốn xoá khách hàng này không?",
+                "Xác nhận xoá",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Modify modify = new Modify();
+                string query = @"DELETE FROM Customers WHERE CustomerID = " + customerId;
+
+                int result = modify.ExecuteNonQuery(query);
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Xóa khách hàng thành công!");
+                    dt = modify.GetAllCustomers();
+                    dataGridView1.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Xóa khách hàng thất bại hoặc không tìm thấy ID!");
+                }
+            }
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

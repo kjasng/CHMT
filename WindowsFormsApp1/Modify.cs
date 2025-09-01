@@ -43,7 +43,7 @@ namespace WindowsFormsApp1
                 sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
-                    list.Add(new Customer(sqlDataReader.GetString(1), sqlDataReader.GetString(2), sqlDataReader.GetInt32(3), sqlDataReader.GetDateTime(4), sqlDataReader.GetString(5), sqlDataReader.GetString(6), sqlDataReader.GetString(7), sqlDataReader.GetString(8), sqlDataReader.GetString(9)));
+                    list.Add(new Customer(sqlDataReader.GetInt32(1), sqlDataReader.GetString(2), sqlDataReader.GetString(3), sqlDataReader.GetInt32(4), sqlDataReader.GetDateTime(5), sqlDataReader.GetString(6), sqlDataReader.GetString(7), sqlDataReader.GetString(8), sqlDataReader.GetString(9), sqlDataReader.GetString(10)));
                 }
                 sqlConnection.Close();
             }

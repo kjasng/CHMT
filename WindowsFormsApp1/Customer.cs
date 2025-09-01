@@ -11,6 +11,8 @@ namespace WindowsFormsApp1
 {
     class Customer
     {
+
+        public int CustomerID { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public int Gender { get; set; }
@@ -26,7 +28,8 @@ namespace WindowsFormsApp1
 
         public string Note { get; set; }
 
-        public Customer(string Firstname, string Lastname, int Gender, DateTime DateOfBirth, string Address, string District, string Phone, string IdentifiCard, string Note) {
+        public Customer(int CustomerID,string Firstname, string Lastname, int Gender, DateTime DateOfBirth, string Address, string District, string Phone, string IdentifiCard, string Note) {
+            this.CustomerID = CustomerID;
             this.Firstname = Firstname;
             this.Lastname = Lastname;   
             this.Gender = Gender;
