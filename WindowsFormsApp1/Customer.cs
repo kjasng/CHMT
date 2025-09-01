@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }
-        public int? Gender { get; set; }
+        public int Gender { get; set; }
         public DateTime? DateOfBirth { get; set; }
 
         public string Address { get; set; }
@@ -37,6 +37,96 @@ namespace WindowsFormsApp1
             this.IdentifiCard = IdentifiCard;
             this.Note = Note;
         }
+
+        public String getFirstname()
+        {
+            return this.Firstname;
+        }
+
+        public void setFirstname(string Firstname)
+        {
+            this.Firstname = Firstname;
+        }
+
+        public String getLastname()
+        {
+            return this.Lastname;
+        }
+
+        public void setLastname(string Lastname)
+        {
+            this.Lastname = Lastname;
+        }
+
+        public int getGender()
+        {
+            return this.Gender;
+        }
+
+        public void setGender(int Gender) {
+            this.Gender = Gender;
+        }
+
+        public DateTime getDateOfBirth()
+        {
+            return (DateTime)this.DateOfBirth;
+        }
+
+        public void setDateOfBirth(DateTime DateOfBirth)
+        {
+            this.DateOfBirth = DateOfBirth;
+        }
+
+        public String getAddress()
+        {
+            return this.Address;
+        }
+
+        public void setAddress(string Address)
+        {
+            this.Address = Address;
+        }
+
+        public String getDistrict()
+        {
+            return this.District;
+        }
+
+        public void setDistrict(string District)
+        {
+            this.District = District;
+        }
+
+        public String getPhone()
+        {
+            return this.Phone;
+        }
+
+        public void setPhone(string Phone)
+        {
+            this.Phone = Phone;
+        }
+
+        public String getIdentifiCard()
+        {
+            return this.IdentifiCard;
+        }
+
+        public void setIdentifiCard(string IdentifiCard)
+        {
+            this.IdentifiCard = IdentifiCard;
+        }
+
+        public String getNote()
+        {
+            return this.Note;
+        }
+
+        public void setNote(string Note)
+        {
+            this.Note = Note;
+        }
+
 
     }
 }

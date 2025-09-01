@@ -17,6 +17,19 @@ namespace WindowsFormsApp1
         private MonthCalendar monthCalendar;
         private ToolStripDropDown dropDown;
 
+        public DateTime? Value
+        {
+            get => SelectedDate;
+            set
+            {
+                SelectedDate = value;
+                if (value.HasValue)
+                    textBox.Text = value.Value.ToString("dd/MM/yyyy");
+                else
+                    textBox.Text = "";
+            }
+        }
+
         public DateTime? SelectedDate { get; private set; }
         public CustomDatePicker()
         {
