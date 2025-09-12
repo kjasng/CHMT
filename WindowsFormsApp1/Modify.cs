@@ -16,6 +16,8 @@ namespace WindowsFormsApp1
 
         SqlCommand sqlCommand;
         SqlDataReader sqlDataReader;
+
+        // User modify
         public List<Users> Users(string query) 
         { 
             List<Users> list = new List<Users>();
@@ -33,6 +35,7 @@ namespace WindowsFormsApp1
                 return list;
         }
 
+        // Customer modify
         public List<Customer> Customers(string query)
         {
             List<Customer> list = new List<Customer>();
@@ -50,6 +53,25 @@ namespace WindowsFormsApp1
             return list;
         }
 
+        // Product Category modify
+        public List<ProductCategory> ProductCategories(string query)
+        {
+            List<ProductCategory> list = new List<ProductCategory>();
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    list.Add(new ProductCategory(sqlDataReader.GetString(1), sqlDataReader.GetString(2)));
+                }
+                sqlConnection.Close();
+            }
+            return list;
+        }
+
+        // fetch all customers
         public DataTable GetAllCustomers()
         {
             DataTable dt = new DataTable();
@@ -65,6 +87,107 @@ namespace WindowsFormsApp1
             return dt;
         }
 
+        // Fetch all users
+        public DataTable GetAllProductCategories()
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                string query = "SELECT * FROM ProductCategory"; // hoặc chọn các cột cần thiết
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
+                {
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        // Product modify
+        public List<ProductModel> Products(string query)
+        {
+            List<ProductModel> list = new List<ProductModel>();
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    list.Add(new ProductModel(sqlDataReader.GetInt32(0), sqlDataReader.GetString(1), sqlDataReader.GetInt32(2), sqlDataReader.GetInt32(3), (float)sqlDataReader.GetDouble(4), (float)sqlDataReader.GetDouble(5), sqlDataReader.IsDBNull(6) ? "" : sqlDataReader.GetString(6)));
+                }
+                sqlConnection.Close();
+            }
+            return list;
+        }
+
+        // Fetch all products
+        public DataTable GetAllProducts()
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                string query = "SELECT * FROM Product";
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
+                {
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        // Get all categories
+        public DataTable GetAllCategories()
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                string query = "SELECT * FROM ProductCategory ORDER BY CategoryName";
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
+                {
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+        
+        // Search products by name
+        public DataTable SearchProducts(string searchTerm)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                string query = "SELECT * FROM Product WHERE ProductName LIKE @searchTerm OR ProductID = @searchTerm";
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
+                {
+                    adapter.SelectCommand.Parameters.AddWithValue("@searchTerm", "%" + searchTerm + "%");
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        // Search product categories
+        public DataTable SearchProductCategories(string searchTerm)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                string query = "SELECT * FROM ProductCategory WHERE CategoryName LIKE @searchTerm OR Description LIKE @searchTerm";
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
+                {
+                    adapter.SelectCommand.Parameters.AddWithValue("@searchTerm", "%" + searchTerm + "%");
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        // Execute query (INSERT, UPDATE, DELETE)
         public int ExecuteNonQuery(string query)
         {
             using (SqlConnection sqlConnection = Connection.GetSqlConnection())

@@ -8,17 +8,14 @@ namespace WindowsFormsApp1
 {
     class ProductCategory
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
+
         public string Description { get; set; }
 
-        public ProductCategory() { }
-
-        public ProductCategory(int id, string name, string description)
+        public ProductCategory(string CategoryName, string Description)
         {
-            this.Id = id;
-            this.Name = name;
-            this.Description = description;
+            this.CategoryName = CategoryName;
+            this.Description = Description;
         }
     }
 }

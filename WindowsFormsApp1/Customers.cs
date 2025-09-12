@@ -28,7 +28,46 @@ namespace WindowsFormsApp1
 
             dt = modify.GetAllCustomers();
             dataGridView1.DataSource = dt;
+            ConfigureDataGridView();
 
+            if (dataGridView1.Columns.Contains("CustomerID"))
+                dataGridView1.Columns["CustomerID"].HeaderText = "Mã KH";
+            if (dataGridView1.Columns.Contains("Firstname"))
+                dataGridView1.Columns["Firstname"].HeaderText = "Tên";
+            if (dataGridView1.Columns.Contains("Lastname"))
+                dataGridView1.Columns["Lastname"].HeaderText = "Họ";
+            if (dataGridView1.Columns.Contains("Gender"))
+                dataGridView1.Columns["Gender"].HeaderText = "Giới tính";
+            if (dataGridView1.Columns.Contains("DateOfBirth"))
+                dataGridView1.Columns["DateOfBirth"].HeaderText = "Ngày sinh";
+            if (dataGridView1.Columns.Contains("Address"))
+                dataGridView1.Columns["Address"].HeaderText = "Địa chỉ";
+            if (dataGridView1.Columns.Contains("District"))
+                dataGridView1.Columns["District"].HeaderText = "Quận/Huyện";
+            if (dataGridView1.Columns.Contains("Phone"))
+                dataGridView1.Columns["Phone"].HeaderText = "Số điện thoại";
+            if (dataGridView1.Columns.Contains("Identificard"))
+                dataGridView1.Columns["Identificard"].HeaderText = "CMND/CCCD";
+            if (dataGridView1.Columns.Contains("Note"))
+                dataGridView1.Columns["Note"].HeaderText = "Ghi chú";
+
+        }
+
+        private void ConfigureDataGridView()
+        {
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(230, 230, 250);
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(250, 250, 250);
         }
 
         private void fetchCustomers_Click(object sender, EventArgs e)
@@ -119,5 +158,7 @@ namespace WindowsFormsApp1
             }
         }
 
+
     }
+        
 }

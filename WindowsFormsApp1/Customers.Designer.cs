@@ -136,7 +136,7 @@
             this.fetchCustomers.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.fetchCustomers.Size = new System.Drawing.Size(103, 40);
             this.fetchCustomers.TabIndex = 1;
-            this.fetchCustomers.Text = "    Refresh";
+            this.fetchCustomers.Text = "     Làm mới";
             this.fetchCustomers.UseVisualStyleBackColor = false;
             this.fetchCustomers.Click += new System.EventHandler(this.fetchCustomers_Click);
             // 
@@ -176,6 +176,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 61);
