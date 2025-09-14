@@ -160,7 +160,7 @@ namespace WindowsFormsApp1
             using (SqlConnection sqlConnection = Connection.GetSqlConnection())
             {
                 sqlConnection.Open();
-                string query = "SELECT * FROM Product WHERE ProductName LIKE @searchTerm OR ProductID = @searchTerm";
+                string query = "SELECT * FROM Product WHERE ProductName LIKE @searchTerm";
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
                 {
                     adapter.SelectCommand.Parameters.AddWithValue("@searchTerm", "%" + searchTerm + "%");
@@ -196,6 +196,173 @@ namespace WindowsFormsApp1
                 SqlCommand cmd = new SqlCommand(query, sqlConnection);
                 return cmd.ExecuteNonQuery();
             }
+        }
+
+        // Invoice methods
+        // Get all invoices
+        public DataTable GetAllInvoices()
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                string query = @"SELECT i.InvoiceID, 
+                                c.Firstname + ' ' + c.Lastname AS CustomerName,
+                                i.SaleDate AS InvoiceDate,
+                                COALESCE((SELECT SUM(id.Quantity * ISNULL(p.PurchaseCost, p.ItemCost)) 
+                                         FROM InvoiceDetail id
+                                         INNER JOIN Product p ON id.ProductID = p.ProductID
+                                         WHERE id.InvoiceID = i.InvoiceID), 0) AS TotalAmount,
+                                COALESCE((SELECT TOP 1 id.Status 
+                                         FROM InvoiceDetail id
+                                         WHERE id.InvoiceID = i.InvoiceID), 1) AS Status
+                                FROM Invoices i
+                                LEFT JOIN Customers c ON i.CustomerID = c.CustomerID
+                                ORDER BY i.InvoiceID DESC";
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
+                {
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        // Get invoice by ID
+        public DataTable GetInvoiceById(int invoiceId)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                string query = @"SELECT i.*, 
+                                c.Firstname + ' ' + c.Lastname AS CustomerName,
+                                i.SaleDate AS InvoiceDate,
+                                COALESCE((SELECT SUM(id.Quantity * ISNULL(p.PurchaseCost, p.ItemCost)) 
+                                         FROM InvoiceDetail id
+                                         INNER JOIN Product p ON id.ProductID = p.ProductID
+                                         WHERE id.InvoiceID = i.InvoiceID), 0) AS TotalAmount,
+                                COALESCE((SELECT SUM(id.Quantity * ISNULL(p.PurchaseCost, p.ItemCost) * 0.1) 
+                                         FROM InvoiceDetail id
+                                         INNER JOIN Product p ON id.ProductID = p.ProductID
+                                         WHERE id.InvoiceID = i.InvoiceID), 0) AS VAT,
+                                COALESCE((SELECT TOP 1 id.Status 
+                                         FROM InvoiceDetail id
+                                         WHERE id.InvoiceID = i.InvoiceID), 1) AS Status
+                                FROM Invoices i
+                                LEFT JOIN Customers c ON i.CustomerID = c.CustomerID
+                                WHERE i.InvoiceID = @InvoiceID";
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
+                {
+                    adapter.SelectCommand.Parameters.AddWithValue("@InvoiceID", invoiceId);
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        // Get invoice details (line items)
+        public DataTable GetInvoiceDetails(int invoiceId)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                string query = @"SELECT id.ProductID, 
+                                p.ProductName,
+                                id.Quantity,
+                                ISNULL(p.PurchaseCost, p.ItemCost) AS UnitPrice,
+                                (id.Quantity * ISNULL(p.PurchaseCost, p.ItemCost)) AS LineTotal
+                                FROM InvoiceDetail id
+                                LEFT JOIN Product p ON id.ProductID = p.ProductID
+                                WHERE id.InvoiceID = @InvoiceID";
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
+                {
+                    adapter.SelectCommand.Parameters.AddWithValue("@InvoiceID", invoiceId);
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        // Search invoices
+        public DataTable SearchInvoices(string searchTerm)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection sqlConnection = Connection.GetSqlConnection())
+            {
+                sqlConnection.Open();
+                string query = @"SELECT i.InvoiceID, 
+                                c.Firstname + ' ' + c.Lastname AS CustomerName,
+                                i.SaleDate AS InvoiceDate,
+                                COALESCE((SELECT SUM(id.Quantity * ISNULL(p.PurchaseCost, p.ItemCost)) 
+                                         FROM InvoiceDetail id
+                                         INNER JOIN Product p ON id.ProductID = p.ProductID
+                                         WHERE id.InvoiceID = i.InvoiceID), 0) AS TotalAmount,
+                                COALESCE((SELECT TOP 1 id.Status 
+                                         FROM InvoiceDetail id
+                                         WHERE id.InvoiceID = i.InvoiceID), 1) AS Status
+                                FROM Invoices i
+                                LEFT JOIN Customers c ON i.CustomerID = c.CustomerID
+                                WHERE CAST(i.InvoiceID AS NVARCHAR) LIKE @searchTerm 
+                                OR c.Firstname LIKE @searchTerm 
+                                OR c.Lastname LIKE @searchTerm
+                                ORDER BY i.InvoiceID DESC";
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
+                {
+                    adapter.SelectCommand.Parameters.AddWithValue("@searchTerm", "%" + searchTerm + "%");
+                    adapter.Fill(dt);
+                }
+            }
+            return dt;
+        }
+
+        // Create new invoice with transaction support
+        public int CreateInvoiceWithDetails(int customerId, DateTime invoiceDate, int status, DataTable invoiceItems)
+        {
+            int newInvoiceId = 0;
+            using (SqlConnection conn = Connection.GetSqlConnection())
+            {
+                conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
+
+                try
+                {
+                    // Insert invoice header
+                    string insertInvoiceQuery = @"
+                        INSERT INTO Invoices (CustomerID, SaleDate)
+                        VALUES (@CustomerId, @SaleDate);
+                        SELECT SCOPE_IDENTITY();";
+
+                    SqlCommand cmd = new SqlCommand(insertInvoiceQuery, conn, transaction);
+                    cmd.Parameters.AddWithValue("@CustomerId", customerId);
+                    cmd.Parameters.AddWithValue("@SaleDate", invoiceDate);
+
+                    newInvoiceId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    // Insert invoice details with status
+                    foreach (DataRow row in invoiceItems.Rows)
+                    {
+                        string insertDetailQuery = @"
+                            INSERT INTO InvoiceDetail (InvoiceID, ProductID, Quantity, Status)
+                            VALUES (@InvoiceId, @ProductId, @Quantity, @Status)";
+
+                        SqlCommand detailCmd = new SqlCommand(insertDetailQuery, conn, transaction);
+                        detailCmd.Parameters.AddWithValue("@InvoiceId", newInvoiceId);
+                        detailCmd.Parameters.AddWithValue("@ProductId", row["ProductID"]);
+                        detailCmd.Parameters.AddWithValue("@Quantity", row["Quantity"]);
+                        detailCmd.Parameters.AddWithValue("@Status", status);
+                        detailCmd.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex;
+                }
+            }
+            return newInvoiceId;
         }
     }
 }

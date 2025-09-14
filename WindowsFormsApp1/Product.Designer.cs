@@ -31,26 +31,27 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.excelExportBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.addProducts = new System.Windows.Forms.Button();
             this.fetchProducts = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.clearSearchButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.delProductBtn = new System.Windows.Forms.Button();
             this.editProductBtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
-            this.clearSearchButton = new System.Windows.Forms.Button();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -87,6 +88,7 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.70885F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.06383F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.22732F));
+            this.tableLayoutPanel2.Controls.Add(this.excelExportBtn, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 1);
@@ -100,6 +102,22 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(894, 91);
             this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // excelExportBtn
+            // 
+            this.excelExportBtn.BackColor = System.Drawing.Color.Green;
+            this.excelExportBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.excelExportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.excelExportBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.excelExportBtn.ForeColor = System.Drawing.Color.White;
+            this.excelExportBtn.Location = new System.Drawing.Point(0, 45);
+            this.excelExportBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.excelExportBtn.Name = "excelExportBtn";
+            this.excelExportBtn.Size = new System.Drawing.Size(176, 46);
+            this.excelExportBtn.TabIndex = 6;
+            this.excelExportBtn.Text = "Xuất ra Excel";
+            this.excelExportBtn.UseVisualStyleBackColor = false;
+            this.excelExportBtn.Click += new System.EventHandler(this.excelExportBtn_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -130,6 +148,7 @@ namespace WindowsFormsApp1
             this.addProducts.TabIndex = 2;
             this.addProducts.Text = "Thêm";
             this.addProducts.UseVisualStyleBackColor = false;
+            this.addProducts.Click += new System.EventHandler(this.addProducts_Click_1);
             // 
             // fetchProducts
             // 
@@ -146,6 +165,51 @@ namespace WindowsFormsApp1
             this.fetchProducts.Text = "Làm mới";
             this.fetchProducts.UseVisualStyleBackColor = false;
             this.fetchProducts.Click += new System.EventHandler(this.fetchProducts_Click);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.88889F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.11111F));
+            this.tableLayoutPanel4.Controls.Add(this.searchButton, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.clearSearchButton, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(179, 48);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(450, 40);
+            this.tableLayoutPanel4.TabIndex = 3;
+            // 
+            // searchButton
+            // 
+            this.searchButton.BackColor = System.Drawing.Color.Orange;
+            this.searchButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.ForeColor = System.Drawing.Color.White;
+            this.searchButton.Location = new System.Drawing.Point(93, 3);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(151, 34);
+            this.searchButton.TabIndex = 4;
+            this.searchButton.Text = "Tìm";
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // clearSearchButton
+            // 
+            this.clearSearchButton.BackColor = System.Drawing.Color.Gray;
+            this.clearSearchButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.clearSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearSearchButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearSearchButton.ForeColor = System.Drawing.Color.White;
+            this.clearSearchButton.Location = new System.Drawing.Point(250, 3);
+            this.clearSearchButton.Name = "clearSearchButton";
+            this.clearSearchButton.Size = new System.Drawing.Size(61, 34);
+            this.clearSearchButton.TabIndex = 5;
+            this.clearSearchButton.Text = "X";
+            this.clearSearchButton.UseVisualStyleBackColor = false;
+            this.clearSearchButton.Click += new System.EventHandler(this.clearSearchButton_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -176,6 +240,7 @@ namespace WindowsFormsApp1
             this.delProductBtn.TabIndex = 7;
             this.delProductBtn.Text = "Xoá";
             this.delProductBtn.UseVisualStyleBackColor = false;
+            this.delProductBtn.Click += new System.EventHandler(this.delProductBtn_Click_1);
             // 
             // editProductBtn
             // 
@@ -191,15 +256,7 @@ namespace WindowsFormsApp1
             this.editProductBtn.TabIndex = 6;
             this.editProductBtn.Text = "Sửa";
             this.editProductBtn.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 100);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(894, 497);
-            this.dataGridView1.TabIndex = 2;
+            this.editProductBtn.Click += new System.EventHandler(this.editProductBtn_Click_1);
             // 
             // tableLayoutPanel6
             // 
@@ -217,18 +274,6 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel6.Size = new System.Drawing.Size(450, 39);
             this.tableLayoutPanel6.TabIndex = 5;
             // 
-            // searchTextBox
-            // 
-            this.searchTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.ForeColor = System.Drawing.Color.Gray;
-            this.searchTextBox.Location = new System.Drawing.Point(0, 0);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(0);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(450, 27);
-            this.searchTextBox.TabIndex = 3;
-            this.searchTextBox.Text = "Tìm kiếm sản phẩm...";
-            // 
             // categoryComboBox
             // 
             this.categoryComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -242,50 +287,26 @@ namespace WindowsFormsApp1
             this.categoryComboBox.Size = new System.Drawing.Size(444, 23);
             this.categoryComboBox.TabIndex = 8;
             // 
-            // clearSearchButton
+            // searchTextBox
             // 
-            this.clearSearchButton.BackColor = System.Drawing.Color.Gray;
-            this.clearSearchButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.clearSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearSearchButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearSearchButton.ForeColor = System.Drawing.Color.White;
-            this.clearSearchButton.Location = new System.Drawing.Point(250, 3);
-            this.clearSearchButton.Name = "clearSearchButton";
-            this.clearSearchButton.Size = new System.Drawing.Size(61, 34);
-            this.clearSearchButton.TabIndex = 5;
-            this.clearSearchButton.Text = "X";
-            this.clearSearchButton.UseVisualStyleBackColor = false;
-            this.clearSearchButton.Click += new System.EventHandler(this.clearSearchButton_Click);
+            this.searchTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox.ForeColor = System.Drawing.Color.Gray;
+            this.searchTextBox.Location = new System.Drawing.Point(0, 0);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(0);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(450, 27);
+            this.searchTextBox.TabIndex = 3;
+            this.searchTextBox.Text = "Tìm kiếm sản phẩm...";
             // 
-            // searchButton
+            // dataGridView1
             // 
-            this.searchButton.BackColor = System.Drawing.Color.Orange;
-            this.searchButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.ForeColor = System.Drawing.Color.White;
-            this.searchButton.Location = new System.Drawing.Point(93, 3);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(151, 34);
-            this.searchButton.TabIndex = 4;
-            this.searchButton.Text = "Tìm";
-            this.searchButton.UseVisualStyleBackColor = false;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.88889F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.11111F));
-            this.tableLayoutPanel4.Controls.Add(this.searchButton, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.clearSearchButton, 1, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(179, 48);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(450, 40);
-            this.tableLayoutPanel4.TabIndex = 3;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 100);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(894, 497);
+            this.dataGridView1.TabIndex = 2;
             // 
             // Product
             // 
@@ -302,11 +323,11 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,5 +350,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button clearSearchButton;
+        private System.Windows.Forms.Button excelExportBtn;
     }
 }

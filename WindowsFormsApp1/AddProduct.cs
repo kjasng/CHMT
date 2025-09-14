@@ -91,6 +91,7 @@ namespace WindowsFormsApp1
                 if (result > 0)
                 {
                     MessageBox.Show("Thêm sản phẩm thành công!");
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else

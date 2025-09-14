@@ -33,6 +33,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.exportExcelBtn = new System.Windows.Forms.Button();
             this.editCustomerBtn = new System.Windows.Forms.Button();
             this.fetchCustomers = new System.Windows.Forms.Button();
             this.addCustomers = new System.Windows.Forms.Button();
@@ -54,7 +55,7 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 52);
+            this.label1.Size = new System.Drawing.Size(173, 52);
             this.label1.TabIndex = 0;
             this.label1.Text = "    Customers";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -77,8 +78,8 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.58766F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.41234F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.10519F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.89481F));
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -91,67 +92,87 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 4;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnCount = 5;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.Controls.Add(this.exportExcelBtn, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.editCustomerBtn, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.fetchCustomers, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.addCustomers, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.delCustomerBtn, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(271, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(182, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(439, 46);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(528, 46);
             this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // exportExcelBtn
+            // 
+            this.exportExcelBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.exportExcelBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportExcelBtn.ForeColor = System.Drawing.Color.White;
+            this.exportExcelBtn.Image = ((System.Drawing.Image)(resources.GetObject("exportExcelBtn.Image")));
+            this.exportExcelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.exportExcelBtn.Location = new System.Drawing.Point(420, 0);
+            this.exportExcelBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.exportExcelBtn.Name = "exportExcelBtn";
+            this.exportExcelBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.exportExcelBtn.Size = new System.Drawing.Size(105, 46);
+            this.exportExcelBtn.TabIndex = 4;
+            this.exportExcelBtn.Text = "    Xuất Excel";
+            this.exportExcelBtn.UseVisualStyleBackColor = false;
+            this.exportExcelBtn.Click += new System.EventHandler(this.exportExcelBtn_Click);
             // 
             // editCustomerBtn
             // 
             this.editCustomerBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.editCustomerBtn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editCustomerBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editCustomerBtn.ForeColor = System.Drawing.Color.White;
             this.editCustomerBtn.Image = ((System.Drawing.Image)(resources.GetObject("editCustomerBtn.Image")));
             this.editCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editCustomerBtn.Location = new System.Drawing.Point(218, 0);
+            this.editCustomerBtn.Location = new System.Drawing.Point(210, 0);
             this.editCustomerBtn.Margin = new System.Windows.Forms.Padding(0);
             this.editCustomerBtn.Name = "editCustomerBtn";
             this.editCustomerBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.editCustomerBtn.Size = new System.Drawing.Size(109, 46);
+            this.editCustomerBtn.Size = new System.Drawing.Size(105, 46);
             this.editCustomerBtn.TabIndex = 2;
             this.editCustomerBtn.Text = "   Sửa TT";
             this.editCustomerBtn.UseVisualStyleBackColor = false;
+            this.editCustomerBtn.Click += new System.EventHandler(this.editCustomerBtn_Click_1);
             // 
             // fetchCustomers
             // 
             this.fetchCustomers.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.fetchCustomers.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fetchCustomers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fetchCustomers.ForeColor = System.Drawing.Color.White;
             this.fetchCustomers.Image = ((System.Drawing.Image)(resources.GetObject("fetchCustomers.Image")));
             this.fetchCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.fetchCustomers.Location = new System.Drawing.Point(3, 3);
             this.fetchCustomers.Name = "fetchCustomers";
             this.fetchCustomers.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.fetchCustomers.Size = new System.Drawing.Size(103, 40);
+            this.fetchCustomers.Size = new System.Drawing.Size(99, 40);
             this.fetchCustomers.TabIndex = 1;
-            this.fetchCustomers.Text = "     Làm mới";
+            this.fetchCustomers.Text = "      Làm mới";
             this.fetchCustomers.UseVisualStyleBackColor = false;
             this.fetchCustomers.Click += new System.EventHandler(this.fetchCustomers_Click);
             // 
             // addCustomers
             // 
             this.addCustomers.BackColor = System.Drawing.Color.ForestGreen;
-            this.addCustomers.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCustomers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addCustomers.ForeColor = System.Drawing.Color.White;
             this.addCustomers.Image = ((System.Drawing.Image)(resources.GetObject("addCustomers.Image")));
             this.addCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addCustomers.Location = new System.Drawing.Point(109, 0);
+            this.addCustomers.Location = new System.Drawing.Point(105, 0);
             this.addCustomers.Margin = new System.Windows.Forms.Padding(0);
             this.addCustomers.Name = "addCustomers";
             this.addCustomers.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.addCustomers.Size = new System.Drawing.Size(109, 46);
+            this.addCustomers.Size = new System.Drawing.Size(105, 46);
             this.addCustomers.TabIndex = 0;
             this.addCustomers.Text = "   Thêm KH";
             this.addCustomers.UseVisualStyleBackColor = false;
@@ -160,15 +181,15 @@
             // delCustomerBtn
             // 
             this.delCustomerBtn.BackColor = System.Drawing.Color.Crimson;
-            this.delCustomerBtn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delCustomerBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delCustomerBtn.ForeColor = System.Drawing.Color.White;
             this.delCustomerBtn.Image = ((System.Drawing.Image)(resources.GetObject("delCustomerBtn.Image")));
             this.delCustomerBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.delCustomerBtn.Location = new System.Drawing.Point(327, 0);
+            this.delCustomerBtn.Location = new System.Drawing.Point(315, 0);
             this.delCustomerBtn.Margin = new System.Windows.Forms.Padding(0);
             this.delCustomerBtn.Name = "delCustomerBtn";
             this.delCustomerBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.delCustomerBtn.Size = new System.Drawing.Size(109, 46);
+            this.delCustomerBtn.Size = new System.Drawing.Size(105, 46);
             this.delCustomerBtn.TabIndex = 3;
             this.delCustomerBtn.Text = "    Xóa KH";
             this.delCustomerBtn.UseVisualStyleBackColor = false;
@@ -221,5 +242,6 @@
         private System.Windows.Forms.Button delCustomerBtn;
         private System.Windows.Forms.Button editCustomerBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button exportExcelBtn;
     }
 }

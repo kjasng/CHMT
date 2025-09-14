@@ -1,3 +1,4 @@
+using ClosedXML.Excel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,67 @@ namespace WindowsFormsApp1
             LoadProductCategories();
             ConfigureDataGridView();
         }
+
+        private void ExportCSV(DataGridView dgv)
+        {
+            if (dgv.Rows.Count > 0)
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+                {
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            using (XLWorkbook wb = new XLWorkbook())
+                            {
+                                var ws = wb.Worksheets.Add("SanPham");
+
+                                ws.Range("A1:G1").Merge();
+                                ws.Cell("A1").Value = "Danh sách phân loại sản phẩm";
+                                ws.Cell("A1").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                                // Ghi header
+                                for (int i = 0; i < dgv.Columns.Count; i++)
+                                {
+                                    ws.Cell(2, i + 1).Value = dgv.Columns[i].HeaderText;
+                                }
+
+                                // Ghi dữ liệu
+                                for (int i = 0; i < dgv.Rows.Count; i++)
+                                {
+                                    for (int j = 0; j < dgv.Columns.Count; j++)
+                                    {
+                                        ws.Cell(i + 3, j + 1).Value = dgv.Rows[i].Cells[j].Value?.ToString();
+                                    }
+                                }
+
+                                // Thêm border cho bảng
+                                var range = ws.Range(1, 1, dgv.Rows.Count - 1, dgv.Columns.Count);
+                                range.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                                range.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
+
+                                // Tự động co dãn cột
+                                ws.Columns().AdjustToContents();
+
+                                // Lưu file
+                                wb.SaveAs(sfd.FileName);
+                            }
+
+                            MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khi xuất file: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
 
         private void ConfigureDataGridView()
         {
@@ -231,6 +293,22 @@ namespace WindowsFormsApp1
                 searchBtn_Click(sender, e);
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void exportExcelBtn_Click(object sender, EventArgs e)
+        {
+
+            DialogResult confirmExport = MessageBox.Show(
+            this,
+            "Bạn có muốn xuất file ra excel không?",
+            "Xác nhận xuất excel",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning);
+            if (confirmExport == DialogResult.Yes)
+            {
+                ExportCSV(dataGridView1);
+            }
+
         }
     }
 }

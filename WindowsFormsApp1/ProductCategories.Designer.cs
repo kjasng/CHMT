@@ -33,16 +33,17 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.refreshBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.searchBtn = new System.Windows.Forms.Button();
             this.clearSearchBtn = new System.Windows.Forms.Button();
-            this.refreshBtn = new System.Windows.Forms.Button();
-            this.addBtn = new System.Windows.Forms.Button();
+            this.searchBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.editBtn = new System.Windows.Forms.Button();
             this.delBtn = new System.Windows.Forms.Button();
+            this.editBtn = new System.Windows.Forms.Button();
+            this.exportExcelBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -127,6 +128,38 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel3.Size = new System.Drawing.Size(353, 48);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
+            // addBtn
+            // 
+            this.addBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.addBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBtn.ForeColor = System.Drawing.Color.White;
+            this.addBtn.Location = new System.Drawing.Point(176, 0);
+            this.addBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(177, 48);
+            this.addBtn.TabIndex = 7;
+            this.addBtn.Text = "Thêm";
+            this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            // 
+            // refreshBtn
+            // 
+            this.refreshBtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.refreshBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.refreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.ForeColor = System.Drawing.Color.White;
+            this.refreshBtn.Location = new System.Drawing.Point(0, 0);
+            this.refreshBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(176, 48);
+            this.refreshBtn.TabIndex = 6;
+            this.refreshBtn.Text = "Làm mới";
+            this.refreshBtn.UseVisualStyleBackColor = false;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -146,6 +179,7 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.94407F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.89933F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.1566F));
+            this.tableLayoutPanel4.Controls.Add(this.exportExcelBtn, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -171,21 +205,6 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel5.Size = new System.Drawing.Size(306, 44);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // searchBtn
-            // 
-            this.searchBtn.BackColor = System.Drawing.Color.Orange;
-            this.searchBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBtn.ForeColor = System.Drawing.Color.White;
-            this.searchBtn.Location = new System.Drawing.Point(3, 3);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(147, 38);
-            this.searchBtn.TabIndex = 1;
-            this.searchBtn.Text = "Tìm";
-            this.searchBtn.UseVisualStyleBackColor = false;
-            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
-            // 
             // clearSearchBtn
             // 
             this.clearSearchBtn.BackColor = System.Drawing.Color.Gray;
@@ -201,37 +220,20 @@ namespace WindowsFormsApp1
             this.clearSearchBtn.UseVisualStyleBackColor = false;
             this.clearSearchBtn.Click += new System.EventHandler(this.clearSearchBtn_Click);
             // 
-            // refreshBtn
+            // searchBtn
             // 
-            this.refreshBtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.refreshBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.refreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.refreshBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshBtn.ForeColor = System.Drawing.Color.White;
-            this.refreshBtn.Location = new System.Drawing.Point(0, 0);
-            this.refreshBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.refreshBtn.Name = "refreshBtn";
-            this.refreshBtn.Size = new System.Drawing.Size(176, 48);
-            this.refreshBtn.TabIndex = 6;
-            this.refreshBtn.Text = "Làm mới";
-            this.refreshBtn.UseVisualStyleBackColor = false;
-            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
-            // 
-            // addBtn
-            // 
-            this.addBtn.BackColor = System.Drawing.Color.ForestGreen;
-            this.addBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Location = new System.Drawing.Point(176, 0);
-            this.addBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(177, 48);
-            this.addBtn.TabIndex = 7;
-            this.addBtn.Text = "Thêm";
-            this.addBtn.UseVisualStyleBackColor = false;
-            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            this.searchBtn.BackColor = System.Drawing.Color.Orange;
+            this.searchBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBtn.ForeColor = System.Drawing.Color.White;
+            this.searchBtn.Location = new System.Drawing.Point(3, 3);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(147, 38);
+            this.searchBtn.TabIndex = 1;
+            this.searchBtn.Text = "Tìm";
+            this.searchBtn.UseVisualStyleBackColor = false;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // tableLayoutPanel6
             // 
@@ -247,6 +249,22 @@ namespace WindowsFormsApp1
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(353, 44);
             this.tableLayoutPanel6.TabIndex = 1;
+            // 
+            // delBtn
+            // 
+            this.delBtn.BackColor = System.Drawing.Color.Crimson;
+            this.delBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.delBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delBtn.ForeColor = System.Drawing.Color.White;
+            this.delBtn.Location = new System.Drawing.Point(176, 0);
+            this.delBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.delBtn.Name = "delBtn";
+            this.delBtn.Size = new System.Drawing.Size(177, 44);
+            this.delBtn.TabIndex = 10;
+            this.delBtn.Text = "Xoá";
+            this.delBtn.UseVisualStyleBackColor = false;
+            this.delBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // editBtn
             // 
@@ -264,21 +282,21 @@ namespace WindowsFormsApp1
             this.editBtn.UseVisualStyleBackColor = false;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
-            // delBtn
+            // exportExcelBtn
             // 
-            this.delBtn.BackColor = System.Drawing.Color.Crimson;
-            this.delBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.delBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delBtn.ForeColor = System.Drawing.Color.White;
-            this.delBtn.Location = new System.Drawing.Point(176, 0);
-            this.delBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.delBtn.Name = "delBtn";
-            this.delBtn.Size = new System.Drawing.Size(177, 44);
-            this.delBtn.TabIndex = 10;
-            this.delBtn.Text = "Xoá";
-            this.delBtn.UseVisualStyleBackColor = false;
-            this.delBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            this.exportExcelBtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.exportExcelBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.exportExcelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportExcelBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportExcelBtn.ForeColor = System.Drawing.Color.White;
+            this.exportExcelBtn.Location = new System.Drawing.Point(0, 0);
+            this.exportExcelBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.exportExcelBtn.Name = "exportExcelBtn";
+            this.exportExcelBtn.Size = new System.Drawing.Size(223, 50);
+            this.exportExcelBtn.TabIndex = 8;
+            this.exportExcelBtn.Text = "Xuất Excel";
+            this.exportExcelBtn.UseVisualStyleBackColor = false;
+            this.exportExcelBtn.Click += new System.EventHandler(this.exportExcelBtn_Click);
             // 
             // ProductCategories
             // 
@@ -320,5 +338,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Button delBtn;
         private System.Windows.Forms.Button editBtn;
+        private System.Windows.Forms.Button exportExcelBtn;
     }
 }

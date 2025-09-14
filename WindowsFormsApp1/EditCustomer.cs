@@ -12,7 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class EditCustomer: Form
     {
-
+        private int customerId;
         private string oldFirstname;
         private string oldLastname;
         private int oldGender;
@@ -22,12 +22,13 @@ namespace WindowsFormsApp1
         private string oldPhone;
         private string oldIdcard;
         private string oldNote;
-        public EditCustomer(string Firstname, string Lastname, int Gender, DateTime DOB, string Address, string District, string Phone, string idCard, string Note)
+        public EditCustomer(int CustomerID, string Firstname, string Lastname, int Gender, DateTime DOB, string Address, string District, string Phone, string idCard, string Note)
         {
             InitializeComponent();
 
 
             // store old value
+            customerId = CustomerID;
             oldFirstname = Firstname;
             oldLastname = Lastname;
             oldGender = Gender;
@@ -86,7 +87,7 @@ namespace WindowsFormsApp1
             {
                 string query = $@"
                                 UPDATE Customers
-                                SET 
+                                SET
                                     Firstname = '{newFirstname}',
                                     Lastname = '{newLastname}',
                                     Gender = {newGender},
@@ -96,13 +97,21 @@ namespace WindowsFormsApp1
                                     Phone = '{newPhone}',
                                     Identificard = '{newIdCard}',
                                     Note = '{newNote}'
-                                WHERE Identificard = '{oldIdcard}'";
+                                WHERE CustomerID = {customerId}";
 
                 Modify modify = new Modify();
-                modify.Customers(query);
-                MessageBox.Show("Cập nhật khách hàng thành công.");
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                int result = modify.ExecuteNonQuery(query);
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Cập nhật khách hàng thành công.");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật khách hàng thất bại!");
+                }
             }
         }
     }

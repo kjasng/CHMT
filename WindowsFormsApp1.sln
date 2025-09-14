@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35828.75 d17.13
+VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{435CC786-A978-432F-AB64-B5A08C297261}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CHMTHM", "CHMTHM\CHMTHM.vdproj", "{552000C3-50C8-A346-AD98-C7DA2A60F13A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{435CC786-A978-432F-AB64-B5A08C297261}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{435CC786-A978-432F-AB64-B5A08C297261}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{435CC786-A978-432F-AB64-B5A08C297261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{552000C3-50C8-A346-AD98-C7DA2A60F13A}.Debug|Any CPU.ActiveCfg = Debug
+		{552000C3-50C8-A346-AD98-C7DA2A60F13A}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

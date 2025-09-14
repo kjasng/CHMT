@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,6 +52,69 @@ namespace WindowsFormsApp1
             if (dataGridView1.Columns.Contains("Note"))
                 dataGridView1.Columns["Note"].HeaderText = "Ghi chú";
 
+        }
+
+        // Export DataTable to CSV
+        private void ExportCSV(DataTable dt)
+        {
+            if (dt.Rows.Count > 0)
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+                {
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            using (XLWorkbook wb = new XLWorkbook())
+                            {
+                                var ws = wb.Worksheets.Add("SanPham");
+
+                                ws.Range("A1:G1").Merge();
+                                ws.Cell("A1").Value = "Danh sách sản phẩm";
+                                ws.Cell("A1").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                                // Ghi header
+                                for (int i = 0; i < dt.Columns.Count; i++)
+                                {
+                                    ws.Cell(2, i + 1).Value = dt.Columns[i].ColumnName;
+                                }
+
+                                // Ghi dữ liệu
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    for (int j = 0; j < dt.Columns.Count; j++)
+                                    {
+                                        ws.Cell(i + 3, j + 1).Value = dt.Rows[i][j] == DBNull.Value ? "" : dt.Rows[i][j].ToString();
+                                    }
+                                }
+
+
+
+                                // Thêm border cho bảng
+                                var range = ws.Range(1, 1, dt.Rows.Count + 1, dt.Columns.Count);
+                                range.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                                range.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
+
+                                // Tự động co dãn cột
+                                ws.Columns().AdjustToContents();
+
+                                // Lưu file
+                                wb.SaveAs(sfd.FileName);
+                            }
+
+                            MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khi xuất file: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ConfigureDataGridView()
@@ -133,8 +197,15 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void editCustomerBtn_Click(object sender, EventArgs e)
+        private void editCustomerBtn_Click_1(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn khách hàng để sửa!");
+                return;
+            }
+
+            int customerId = Convert.ToInt32(dataGridView1.CurrentRow.Cells["CustomerID"].Value);
             string firstname = dataGridView1.CurrentRow.Cells["Firstname"].Value?.ToString();
             string lastname = dataGridView1.CurrentRow.Cells["Lastname"].Value?.ToString();
             int gender = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Gender"].Value);
@@ -145,8 +216,7 @@ namespace WindowsFormsApp1
             string idCard = dataGridView1.CurrentRow.Cells["Identificard"].Value?.ToString();
             string note = dataGridView1.CurrentRow.Cells["Note"].Value?.ToString();
 
-            EditCustomer editCustomer = new EditCustomer(firstname, lastname, gender, dob, address, district, phone, idCard, note);
-            //editCustomer.ShowDialog();
+            EditCustomer editCustomer = new EditCustomer(customerId, firstname, lastname, gender, dob, address, district, phone, idCard, note);
 
             if (editCustomer.ShowDialog() == DialogResult.OK)
             {
@@ -158,7 +228,25 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void exportExcelBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult confirmExport = MessageBox.Show(
+                this,
+                "Bạn có muốn xuất file ra excel không?",
+                "Xác nhận xuất excel",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+            if (confirmExport == DialogResult.Yes)
+            {
+                ExportCSV(dt);
+            }
 
+        }
+
+        //private void editCustomerBtn_Click_1(object sender, EventArgs e)
+        //{
+
+        //}
     }
         
 }

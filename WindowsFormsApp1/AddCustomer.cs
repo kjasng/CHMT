@@ -72,9 +72,18 @@ namespace WindowsFormsApp1
                                 VALUES ('" + firstName + "', '" + lastName + "', '" + gender + "', '" + dob + "', '" + address + "', '" + district + "', '" + phone + "', '" + idCard + "', '" + note + "')";
                 Modify modify = new Modify();
 
-                modify.Customers(query);
-                MessageBox.Show("Thêm khách hàng thành công!");
-                this.Close();
+                int result = modify.ExecuteNonQuery(query);
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Thêm khách hàng thành công!");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm khách hàng thất bại!");
+                }
             }
         }
     }

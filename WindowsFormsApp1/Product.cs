@@ -4,10 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Bibliography;
+
 
 namespace WindowsFormsApp1
 {
@@ -18,6 +22,68 @@ namespace WindowsFormsApp1
         public Product()
         {
             InitializeComponent();
+        }
+
+        // Export DataTable to CSV
+        private void ExportCSV(DataTable dt)
+        {
+            if (dt.Rows.Count > 0) {
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+                {
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            using (XLWorkbook wb = new XLWorkbook())
+                            {
+                                var ws = wb.Worksheets.Add("SanPham");
+
+                                ws.Range("A1:G1").Merge();
+                                ws.Cell("A1").Value = "Danh sách sản phẩm";
+                                ws.Cell("A1").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                                // Ghi header
+                                for (int i = 0; i < dt.Columns.Count; i++)
+                                {
+                                    ws.Cell(2, i + 1).Value = dt.Columns[i].ColumnName;
+                                }
+
+                                // Ghi dữ liệu
+                                for(int i = 0; i<dt.Rows.Count; i++)
+                                {
+                                    for (int j = 0; j < dt.Columns.Count; j++)
+                                    {
+                                        ws.Cell(i + 3, j + 1).Value = dt.Rows[i][j] == DBNull.Value ? "" : dt.Rows[i][j].ToString();
+                                    }
+                                }
+
+
+
+                                // Thêm border cho bảng
+                                var range = ws.Range(1, 1, dt.Rows.Count +1, dt.Columns.Count);
+                                range.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                                range.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
+
+                                // Tự động co dãn cột
+                                ws.Columns().AdjustToContents();
+
+                                // Lưu file
+                                wb.SaveAs(sfd.FileName);
+                            }
+
+                            MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi khi xuất file: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            } 
+            else
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void formProduct_Load(object sender, EventArgs e)
@@ -38,7 +104,8 @@ namespace WindowsFormsApp1
             ConfigureDataGridView();
             LoadCategories();
         }
-        
+
+        // Load categories into ComboBox
         private void LoadCategories()
         {
             try
@@ -67,12 +134,19 @@ namespace WindowsFormsApp1
 
         private void fetchProducts_Click(object sender, EventArgs e)
         {
+            // Reset category filter to "All"
+            if (categoryComboBox != null && categoryComboBox.Items.Count > 0)
+            {
+                categoryComboBox.SelectedIndex = 0;
+            }
+
             Modify modify = new Modify();
             dt = modify.GetAllProducts();
             dataGridView1.DataSource = dt;
             ConfigureDataGridView();
         }
-        
+
+        // Configure DataGridView columns and appearance
         private void ConfigureDataGridView()
         {
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -178,12 +252,21 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void addProducts_Click(object sender, EventArgs e)
+        // Add product button click
+        private void addProducts_Click_1(object sender, EventArgs e)
         {
-            addProduct.ShowDialog();
+            if (addProduct.ShowDialog() == DialogResult.OK)
+            {
+                // Refresh data after successful addition
+                Modify modify = new Modify();
+                dt = modify.GetAllProducts();
+                dataGridView1.DataSource = dt;
+                ConfigureDataGridView();
+            }
         }
 
-        private void delProductBtn_Click(object sender, EventArgs e)
+        // Delete product button click
+        private void delProductBtn_Click_1(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow == null)
             {
@@ -191,36 +274,46 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            string productId = dataGridView1.CurrentRow.Cells["ProductID"].Value.ToString();
-
-            DialogResult dialogResult = MessageBox.Show(
-                this,
-                "Bạn có chắc chắn muốn xoá sản phẩm này không?",
-                "Xác nhận xoá",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
-
-            if (dialogResult == DialogResult.Yes)
+            try
             {
-                Modify modify = new Modify();
-                string query = @"DELETE FROM Product WHERE ProductID = " + productId;
+                string productId = dataGridView1.CurrentRow.Cells["ProductID"].Value.ToString();
+                string productName = dataGridView1.CurrentRow.Cells["ProductName"].Value?.ToString() ?? "Sản phẩm";
 
-                int result = modify.ExecuteNonQuery(query);
+                DialogResult dialogResult = MessageBox.Show(
+                    this,
+                    $"Bạn có chắc chắn muốn xoá sản phẩm '{productName}' không?",
+                    "Xác nhận xoá",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
 
-                if (result > 0)
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Xóa sản phẩm thành công!");
-                    dt = modify.GetAllProducts();
-                    dataGridView1.DataSource = dt;
+                    Modify modify = new Modify();
+                    string query = @"DELETE FROM Product WHERE ProductID = " + productId;
+
+                    int result = modify.ExecuteNonQuery(query);
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Xóa sản phẩm thành công!");
+                        dt = modify.GetAllProducts();
+                        dataGridView1.DataSource = dt;
+                        ConfigureDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa sản phẩm thất bại hoặc không tìm thấy ID!");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Xóa sản phẩm thất bại hoặc không tìm thấy ID!");
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void editProductBtn_Click(object sender, EventArgs e)
+        // Edit product button click
+        private void editProductBtn_Click_1(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow == null)
             {
@@ -243,9 +336,11 @@ namespace WindowsFormsApp1
                 Modify modify = new Modify();
                 dt = modify.GetAllProducts();
                 dataGridView1.DataSource = dt;
+                ConfigureDataGridView();
             }
         }
 
+        // Search func
         private void searchButton_Click(object sender, EventArgs e)
         {
             string searchTerm = searchTextBox.Text.Trim();
@@ -265,6 +360,7 @@ namespace WindowsFormsApp1
             }
         }
 
+        // Clear search input
         private void clearSearchButton_Click(object sender, EventArgs e)
         {
             searchTextBox.Text = "Tìm kiếm sản phẩm...";
@@ -275,6 +371,7 @@ namespace WindowsFormsApp1
             dataGridView1.DataSource = dt;
         }
 
+        // Placeholder text behavior
         private void searchTextBox_Enter(object sender, EventArgs e)
         {
             if (searchTextBox.Text == "Tìm kiếm sản phẩm...")
@@ -284,6 +381,7 @@ namespace WindowsFormsApp1
             }
         }
 
+        // Remove placeholder if empty
         private void searchTextBox_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(searchTextBox.Text))
@@ -293,6 +391,7 @@ namespace WindowsFormsApp1
             }
         }
 
+        // Trigger search on Enter key
         private void searchTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -302,7 +401,8 @@ namespace WindowsFormsApp1
                 e.SuppressKeyPress = true;
             }
         }
-        
+
+        // Filter products by category
         private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (categoryComboBox.SelectedValue == null) return;
@@ -338,6 +438,23 @@ namespace WindowsFormsApp1
             
             dataGridView1.DataSource = dt;
             ConfigureDataGridView();
+        }
+
+        // Excel export button click
+        private void excelExportBtn_Click(object sender, EventArgs e)
+        {
+
+                DialogResult confirmExport = MessageBox.Show(
+                this,
+                "Bạn có muốn xuất file ra excel không?",
+                "Xác nhận xuất excel",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+                if (confirmExport == DialogResult.Yes)
+                {
+                    ExportCSV(dt);
+                }
+
         }
     }
 }

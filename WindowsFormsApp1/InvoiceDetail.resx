@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,64 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAANFJREFUSEvl
-        kzEKwkAQRd8BtLLxPhYWYmth4QFsLbyE57Gx0QN4DBE7SzvlwwzIsEk2iQuKDwbC/v9nN7MJ/AtL4AQ8
-        rPSstY+wA54VJa0XOqU3WwNDKz37eq830Si8ecQ3kaczmrea6NQRrUmTpzPFNyg+ouKXLIp+pk7RH+13
-        mQNn4J6YvZc0eWYx3MQ20aypNrFJFVMLXIEVMI6GN6TJI68yk2hIcTDzIgo1yKvMPgopbmYeRKGGkWUu
-        UUjhM21Ldi7bGMjOHe0e2tI19+W8AN28YYUx7eFkAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="exportExcelBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAERJREFUSEtj
-        YBgFQwr8////FAiji1MN/IcCdHGqgVELCIKhYQE0KZILCCdhmluAD8BMQRenGhi1gCAYFhbQtrgeBTQB
-        AL+t7WlAmKBkAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="editCustomerBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAV9JREFUSEvN
-        lU0rhGEUhscCyUchNYuRMQsLG3srSvkvNpZTtpb+AaWs/QWSYiMRCSUpRLKSspJLd523zpym93Mz12aa
-        cz/neqfnnOmt1XodYBLYBl6Ab+AIWIznSgE0TRz5A1bi+UKY/NmE18ASMAPsW+0j9uQGmAaeTHSra3LZ
-        OPBr2VxnZw6AhpPfAVMhX7VMDxn0WSZAPUOua3u3fMtnmZj8wZrvu8hbwKvll8CAz1MJcn3WQ+63SfIx
-        n6eiX5oh10wqyXXXQnffTZ7MpLK8EXIvPysqn8iQ+22SfMTnqZhc/0yhu+0mT2ZSWd4MeSX5KHBhzdrn
-        Vsg1E+2/OCkkF8CmNb8BsyHzA5d82Oe5AB5NsBzqkt9YdlxWPm+CT6DP1f02nQJDnZ05ATZMsudqC8CV
-        1Q9Ly4VthNgBdvWysO/ioJJcAF9OmKBhrgH98XxhgHXgBzgH2npjxTM9yz+HfL+szaVfPQAAAABJRU5E
-        rkJggg==
-</value>
-  </data>
-  <data name="fetchCustomers.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAZZJREFUSEvd
-        1c+LTnEUx/FhobHRJEpKsrBhYWUoxcZCyk4pKyG/shgLmQUraZJ/wVqysBLKQjIzKf8ANn4UY2FDCNFL
-        R2d072nunbuY1bzr6ene9+ec89zvfe73jowsG/A4PuXcGhzFdTzEJ3zEPVzFIaxs1nQiaRzvx/v58z3M
-        YHO72wI0CsZws3F8F8exJ9067MNZPMvMV5yoPVs0Gr7I7+84VnNNYnlwCb+y5nTN/KcxIHiFrTXTBXbi
-        N75hS/URWFEGNGnd+C5wJfNPo1+VMeBLaTzPo1a4g1yu51mzq/olAadywIXqlgTszQF3qgv5ZOh6d4H1
-        OeBddSHnUm6obihRmz3mqgv5IOWB6oaCg9njfnUhp1JOVjcUXM4e16oLeSTla6yqfjGwGm+yx+HqIzCK
-        lxmYqn4xcCNrYxcYrf4f2IGf+IPx6rvA7qz5gW3Vt8BE/pIIX+zb7/PpncxscL5mFgQnG1vHLM7kQ7Q2
-        /+t1u/4cNbVPL9iE6WzQR7wJN9b6wWA7zuE2PuAtbuVV9a/3suAvGQOewCC2ZnQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="addCustomers.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAERJREFUSEtj
-        YBgFQwr8////FAiji1MN/IcCdHGqgVELCIKhYQE0KZILCCdhmluAD8BMQRenGhi1gCAYFhbQtrgeBTQB
-        AL+t7WlAmKBkAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="delCustomerBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAALRJREFUSEvF
-        lsENgkAUBelCqtGDlWpipBYqMUoPYzbZPfgAmYPEOe6f+XL7dt0/AXrgCjyYU97KrM9OAwy5dYEhOw0w
-        1SXHhdmpzl4507RPzPfG1vwDYGzBDxhz//4/0GhGvm+hOy0GutNioDstBrrTYqA7LQa602KgOy0GutNi
-        oDstBrrTYqA7LQa602Kgu3JAqjs7MmsA59psHx95Jte4574Z9dDfgGfWXyh/AC7AIfftzhuVpXK4iyj4
-        2AAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="customersTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>
